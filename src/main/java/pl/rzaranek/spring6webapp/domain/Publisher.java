@@ -15,11 +15,20 @@ public class Publisher {
     private Long id;
     private String publisherName;
     private String address;
+    private String city;
     private String state;
     private String zip;
 
     @OneToMany(mappedBy = "publisher")
     private Set<Book> books;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public Long getId() {
         return id;

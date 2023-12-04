@@ -53,7 +53,8 @@ public class BootstapData implements CommandLineRunner {
 
         Publisher publisher = new Publisher();
         publisher.setPublisherName("Znak");
-        publisher.setAddress("Cracow");
+        publisher.setAddress("Bracka 20");
+        publisher.setCity("Cracow");
         publisher.setState("małopolska");
         publisher.setZip("30-303");
 
@@ -62,13 +63,14 @@ public class BootstapData implements CommandLineRunner {
         chlopiSaved.setPublisher(publisherSaved);
         potopSaved.setPublisher(publisherSaved);
 
+        prusSaved.getBooks().add(chlopiSaved);
+        chlopiSaved.getAuthors().add(prusSaved);
+        sienkiewiczSaved.getBooks().add(potopSaved);
+        potopSaved.getAuthors().add(sienkiewiczSaved);
+
         bookRepository.save(chlopiSaved);
         bookRepository.save(potopSaved);
-
-        prusSaved.getBooks().add(chlopiSaved);
         authorRepository.save(prusSaved);
-
-        sienkiewiczSaved.getBooks().add(potopSaved);
         authorRepository.save(sienkiewiczSaved);
 
         System.out.println("In Bootsrap");
